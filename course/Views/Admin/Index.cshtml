@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>Чтобы воспользоваться возможностями администратора, пожалуйста, войдите в систему</h3>
+<br/>
+<form method="post" asp-controller="admin" asp-action="index">
+    <div>
+        <label>Email</label><br />
+        <input type="email" name="email" />
+    </div>
+    <div>
+        <br/>
+        <label>Пароль</label><br />
+        <input type="password" name="password" />
+    </div>
+    <div>
+        <br/>
+        <input type="submit" value="Войти" />
+    </div>
+</form>

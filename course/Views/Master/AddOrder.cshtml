@@ -1,0 +1,61 @@
+﻿@model IEnumerable<course.ViewModels.OrderViewModel>
+@{
+    ViewData["Title"] = "Information";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Категория
+            </th>
+            <th>
+                Материал
+            </th>
+            <th>
+                Стоимость
+            </th>
+            <th>
+                Имя клиента
+            </th>
+            <th>
+                Номер клиента
+            </th>
+            <th>
+                Дата заказа
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Material)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem=>item.ClientName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem=>item.PhoneNumber)
+                </td>
+                <td>
+                    @{
+                        var localtime = item.OrderingTime.UtcDateTime.ToLocalTime();
+                        @Html.DisplayFor(modelItem => localtime);
+                    }
+                </td>
+                <td>
+                    <a asp-action="add" asp-route-id="@item.OrderId">Добавить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="menu">Назад</a>

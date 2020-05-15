@@ -1,0 +1,80 @@
+﻿@model course.ViewModels.OrderViewModel
+
+@{
+    ViewData["Title"] = "Удаление";
+}
+
+<h1>Удаление заказа</h1>
+
+<h3>Вы действительно хотите удалитьданный заказ?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Имя клиента
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ClientName)
+        </dd>
+        <dt class="col-sm-2">
+            Имя мастера
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.MasterName==null)
+            {
+                <span>Заказ не был обработан</span>
+            }
+            else
+            {
+                @Html.DisplayFor(model=>model.MasterName)
+            }
+        </dd>
+        <dt class="col-sm-2">
+            Категория
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+        <dt class="col-sm-2">
+            Материал
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Material)
+        </dd>
+        <dt class="col-sm-2">
+            Стоимость
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+        <dt class="col-sm-2">
+            Дата заказа
+        </dt>
+        <dd class="col-sm-10">
+            @{ 
+                var order = Model.OrderingTime.ToLocalTime().DateTime;
+            }
+            @Html.DisplayFor(model => order)
+        </dd>
+        <dt class="col-sm-2">
+            Дата пошива
+        </dt>
+        <dd class="col-sm-10">
+            @{ 
+                var sewing = Model.SewingTime.ToLocalTime().DateTime;
+                if(sewing ==DateTimeOffset.MinValue)
+                {
+                    <span>Заказ не был обработан</span>
+                }
+                else
+                    @Html.DisplayFor(model=>sewing)
+            }
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="OrderId" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-action="Index">Назад</a>
+    </form>
+</div>

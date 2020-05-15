@@ -1,0 +1,95 @@
+﻿@model IEnumerable<IndividualOrder>
+@{
+    ViewData["Title"] = "Individual";
+}
+
+<h1>Индивидуальные заказы</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Описание заказа
+            </th>
+            <th>
+                Имя клиента
+            </th>
+            <th>
+                Стоимость
+            </th>
+            <th>
+                Имя мастера
+            </th>
+            <th>
+                Дата заказа
+            </th>
+            <th>
+                Дата выполнения
+            </th>
+            <th>
+                Статус
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientName)
+            </td>
+
+            <td>
+                @if (item.Cost == 0)
+                {
+                    <span>Заказ не был обработан</span>
+                }
+                else
+                    @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @if (item.EmployeeGuid == null)
+                {
+                    <span>Заказ не был обработан</span>
+                }
+                else
+                    @Html.DisplayFor(modelItem => item.MasterName)
+            </td>
+            <td>
+                @{
+                    var localtime = item.OrderingTime.UtcDateTime.ToLocalTime();
+                    @Html.DisplayFor(modelItem => localtime);
+                }
+            </td>
+            <td>
+                @if(item.SewingDate==DateTimeOffset.MinValue)
+                {
+                    <span>Заказ не был выполнен</span>
+                }
+                else
+                {
+                    var sewing = item.SewingDate.UtcDateTime.ToLocalTime();
+                    @Html.DisplayFor(modelItem => sewing);
+                }
+            </td>
+            <td>
+                @if (item.isCompleted==0)
+                {
+                    <span>Не выполнен</span>
+                }
+                else
+                {
+                    <span>Выполнен</span>
+                }
+            </td>
+            <td>
+                <a asp-action="deleteind" asp-route-id="@item.OrderId">Удалить</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="index">Назад</a>

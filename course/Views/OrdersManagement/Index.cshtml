@@ -1,0 +1,97 @@
+﻿@model IEnumerable<course.ViewModels.OrderViewModel>
+
+@{
+    ViewData["Title"] = "Управление заказами";
+}
+
+<h1>Все заказы</h1>
+<a asp-action="individual">Индивидуальные заказы</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="index" asp-route-sortState="@ViewBag.ClientSort">Имя клиента</a>
+            </th>
+            <th>
+                <a asp-action="index" asp-route-sortState="@ViewBag.MasterSort">Имя мастера</a>
+            </th>
+            <th>
+                <a asp-action="index" asp-route-sortState="@ViewBag.CategorySort">Категория</a>
+            </th>
+            <th>
+                <a asp-action="index" asp-route-sortState="@ViewBag.MaterialSort">Материал</a>
+            </th>
+            <th>
+                <a asp-action="index" asp-route-sortState="@ViewBag.CostSort">Стоимость</a>
+            </th>
+            <th>
+                <a asp-action="index" asp-route-sortState="@ViewBag.OrderSort">Дата заказа</a>
+            </th>
+            <th>
+                <a asp-action="index" asp-route-sortState="@ViewBag.SewingSort">Дата пошива</a>
+            </th>
+            <th>
+                Статус
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientName)
+            </td>
+            <td>
+                @if (item.MasterName == null)
+                {
+                    <span>Заказ не был обработан</span>
+                }
+                else
+                    @Html.DisplayFor(modelItem => item.MasterName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Material)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @{
+                    var order = item.OrderingTime.ToLocalTime().DateTime;
+                }
+                @Html.DisplayFor(modelItem => order)
+            </td>
+            <td>
+                @{
+                    var sewing = item.SewingTime.ToLocalTime().DateTime;
+                }
+                @{
+                    if (sewing == DateTimeOffset.MinValue.ToLocalTime())
+                    {
+                        <span>Заказ не был выполнен</span>
+                    }
+                    else
+                        @Html.DisplayFor(modelItem => sewing)
+                }
+            </td>
+            <td>
+                @if (item.isCompleted == 0)
+                {
+                    <span>Не выполнен</span>
+                }
+                else
+                {
+                    <span>Выполнен</span>
+                }
+            </td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.OrderId">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<a asp-controller="admin" asp-action="menu">Назад</a>

@@ -1,0 +1,44 @@
+﻿@model course.Models.Master
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Удаление мастера</h1>
+
+<h3>Вы действительно хотите удалить данного мастера?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Имя мастера
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Qualification)
+        </dd>
+        <dt class="col-sm-2">
+            Квалификация
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Qualification)
+        </dd>
+        <dt class="col-sm-2">
+            Число заказов
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TotalOrders)
+        </dd>
+        <dt class="col-sm-2">
+            Общая сумма заказов
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TotalCosts)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="UserGuid" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-action="Index">Назад</a>
+    </form>
+</div>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<IndividualOrder>
+@{
+    ViewData["Title"] = "AddIndividual";
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Описание заказа
+            </th>
+            <th>
+                Имя клиента
+            </th>
+            <th>
+                Номер клиента
+            </th>
+            <th>
+                Дата заказа
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @{
+                    var localtime = item.OrderingTime.UtcDateTime.ToLocalTime();
+                    @Html.DisplayFor(modelItem => localtime);
+                }
+            </td>
+            <td>
+                <a asp-action="AddInd" asp-route-id="@item.OrderId">Добавить</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="menu">Назад</a>

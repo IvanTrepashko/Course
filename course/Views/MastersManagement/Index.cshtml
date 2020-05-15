@@ -1,0 +1,53 @@
+﻿@model IEnumerable<course.Models.Master>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<p>
+    <a asp-action="Create">Добавить мастера</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Имя мастера
+            </th>
+            <th>
+                Квалификация
+            </th>
+            <th>
+                Число заказов
+            </th>
+            <th>
+                Общая сумма заказов
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qualification)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalOrders)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalCosts)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.UserGuid">Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.UserGuid">Детали</a> |
+                <a asp-action="Delete" asp-route-id="@item.UserGuid">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<a asp-controller="admin" asp-action="menu">Назад</a>

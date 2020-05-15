@@ -1,0 +1,42 @@
+﻿@model IEnumerable<course.Models.Client>
+
+@{
+    ViewData["Title"] = "Управление клиентами";
+}
+
+<h1>Все клиенты</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Параметры тела
+            </th>
+            <th>
+                Имя клиента
+            </th>
+            <th>
+                Номер клиента
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BodyParameters)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.UserGuid">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<a asp-controller="admin" asp-action="menu">Назад</a>

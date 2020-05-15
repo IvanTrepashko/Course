@@ -1,0 +1,17 @@
+﻿@model course.Models.Commentary
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<h2 style="text-align:center;">Добро пожаловать</h2>
+    @if(Model.Comment!=null)
+    {
+        <p>
+            Случайный отзыв о нашей компании:
+            <br/>
+            <p>
+                @Html.DisplayFor(itemView=>Model.Comment)
+            </p>
+        </p>
+    }

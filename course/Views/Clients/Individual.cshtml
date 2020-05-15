@@ -1,0 +1,14 @@
+﻿@model IndividualOrder
+@{
+    ViewData["Title"] = "Individual";
+}
+
+
+
+<h1>Пожалуйста, опишите Ваш индивидульных заказ</h1>
+
+<form asp-action="Individual" method="post">
+    <textarea name="order" rows="6" cols="60"></textarea>
+    <br />
+    <input type="submit" value="Отправить" class="btn btn-primary" />
+</form>

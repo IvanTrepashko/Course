@@ -1,0 +1,30 @@
+﻿@model IndividualOrder
+@{
+    ViewData["Title"] = "AddInd";
+}
+
+    <div>
+        <h4>Индивидуальный заказ</h4>
+        <hr />
+        <form asp-action="addind">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="OrderDescription" class="control-label">Описание заказа</label>
+                <input asp-for="OrderDescription" class="form-control" readonly/>
+                <span asp-validation-for="OrderDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientName" class="control-label"></label>
+                <input asp-for="ClientName" class="form-control" readonly />
+                <span asp-validation-for="ClientName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cost" class="control-label">Стоимость</label>
+                <input asp-for="Cost" class="form-control"/>
+                <span asp-validation-for="Cost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Добавить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>

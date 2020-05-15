@@ -1,0 +1,38 @@
+﻿@model course.Models.Client
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Удаление клиента</h1>
+
+<h3>Вы действительно хотите удалить данного клиента?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Параметры тела
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BodyParameters)
+        </dd>
+        <dt class="col-sm-2">
+            Имя клиента
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+        <dt class="col-sm-2">
+            Номер клиента
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="UserGuid" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-action="Index">Назад</a>
+    </form>
+</div>

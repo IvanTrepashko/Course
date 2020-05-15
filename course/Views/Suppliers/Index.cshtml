@@ -1,0 +1,60 @@
+﻿@model IEnumerable<course.Models.Supplier>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Управление поставщиками</h1>
+
+<p>
+    <a asp-action="Create">Добавить поставщика</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="index" asp-route-sortState="@ViewBag.CountrySort">Страна</a>
+            </th>
+            <th>
+                <a asp-action="index" asp-route-sortState="@ViewBag.NameSort">Название</a>
+            </th>
+            <th>
+                <a asp-action="index" asp-route-sortState="@ViewBag.CostSort">Стоимость за партию</a>
+            </th>
+            <th>
+                <a asp-action="index" asp-route-sortState="@ViewBag.PhoneSort">Номер телефона</a>
+            </th>
+            <th>
+                <a asp-action="index" asp-route-sortState="@ViewBag.MaterialSort">Материал</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Material)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SupplierId">Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.SupplierId">Детали</a> |
+                <a asp-action="Delete" asp-route-id="@item.SupplierId">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<a asp-controller="admin"asp-action="menu">Назад</a>

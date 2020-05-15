@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewData["Title"] = "Information";
+}
+@model IEnumerable<course.ViewModels.OrderViewModel>
+
+<h1>Ваши заказы </h1>
+<br/>
+<p>
+    <a asp-action="menu">Назад</a>
+</p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Категория
+            </th>
+            <th>
+                Материал
+            </th>
+            <th>
+                Стоимость
+            </th>
+            <th>
+                Фото
+            </th>
+            <th>
+                Имя мастера
+            </th>
+            <th>
+                Дата заказа
+            </th>
+            <th>
+                Дата пошива
+            </th>
+            <th>
+                Статус
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Material)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @if (item.Image != null)
+                {
+                    <img style="width:100px;height:100px;" src="data:image/jpeg;base64,@Convert.ToBase64String(item.Image)" />
+                }
+            </td>
+            <td>
+                @if (item.MasterName == null)
+                {
+                    <span>Заказ не был обработан</span>
+                }
+                else
+                {
+                    <span>@Html.DisplayFor(modelItem => item.MasterName)</span>
+                }
+            </td>
+            <td>
+                @{
+                    var localtime = item.OrderingTime.UtcDateTime.ToLocalTime();
+                    @Html.DisplayFor(modelItem => localtime);
+                }
+            </td>
+            <td>
+                @if (item.SewingTime == DateTimeOffset.MinValue)
+                {
+                    <p>Заказ не был выполнен</p>
+                }
+                else
+                {
+                    var localtm = item.SewingTime.UtcDateTime.ToLocalTime();
+                    @Html.DisplayFor(modelItem => localtm)
+                }
+            </td>
+            <td>
+                @if (item.isCompleted == 0)
+                {
+                    <span>Не выполнен</span>
+                }
+                else
+                {
+                    <span>Выполнен</span>
+                }
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
