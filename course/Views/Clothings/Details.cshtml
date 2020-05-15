@@ -4,10 +4,13 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Детали</h1>
+@{ 
+    Layout = "_AdminLayout";
+}
+
+<h3>Детали</h3>
 
 <div>
-    <h4>Вещь</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -43,6 +46,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.ClothingId">Редактировать</a> |
-    <a asp-action="Index">Назад</a>
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.ClothingId">Редактировать</a>
+    <a class="btn btn-info" asp-action="Index">Назад</a>
 </div>

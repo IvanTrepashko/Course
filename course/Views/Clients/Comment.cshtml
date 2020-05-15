@@ -2,10 +2,15 @@
 @{
     ViewData["Title"] = "Comment";
 }
-
-<h1>Пожалуйста, оставьте отзыв о нашем ателье.</h1>
-<form asp-action="Comment" method="post">
-    <textarea name="comment" rows="6" cols="60"></textarea>
-    <br/>
-    <input type="submit" value="Оставить отзыв" class="btn btn-primary"/>
-</form>
+@{ 
+    Layout = "_ClientsLayout";
+}
+<div class="text-center">
+    <h3>Пожалуйста, оставьте отзыв о нашем ателье.</h3>
+    <form asp-action="Comment" method="post">
+        <textarea name="comment" rows="6" cols="60"></textarea>
+        <br/>
+        <br/>
+        <input type="submit" value="Оставить отзыв" class="btn btn-primary"/>
+    </form>
+</div>

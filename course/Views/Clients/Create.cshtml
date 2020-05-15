@@ -2,13 +2,16 @@
 @{
     ViewData["Title"] = "Create";
 }
+
+@{
+    Layout = "_ClientsLayout";
+}
+
 @model IEnumerable<Clothing>
-<h1>Выберите вещь, которую хотите заказать</h1>
+
+<h3 style="text-align:center;">Выберите вещь, которую хотите заказать</h3>
 <br/>
-<p>
-    <a asp-action="menu">Назад</a>
-</p>
-    <table class="table">
+    <table class="table table-borderless table-hover"style="border-bottom:none;border-right:none;">
         <thead>
             <tr>
                 <th>
@@ -45,8 +48,8 @@
                         <img style="width:100px;height:100px;" src="data:image/jpeg;base64,@Convert.ToBase64String(item.Image)" />
                     }
                 </td>
-                <td>
-                    <a asp-action="Add" asp-route-id="@item.ClothingId">Добавить</a>
+                <td style="border:none;">
+                    <a class="btn btn-primary" asp-action="Add" asp-route-id="@item.ClothingId">Добавить</a>
                 </td>
             </tr>
         }

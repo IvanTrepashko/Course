@@ -4,11 +4,12 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Добавление вещи</h1>
-
-<h4>Вещь</h4>
+@{ 
+    Layout = "_AdminLayout";
+}
+<h3 class="text-center">Добавление модели</h3>
 <hr />
-<div class="row">
+<div class="row text-center">
     <div class="col-md-4">
         <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -37,11 +38,3 @@
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Назад</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

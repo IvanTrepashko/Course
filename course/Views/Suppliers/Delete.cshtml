@@ -4,8 +4,9 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Удаление поставщика</h1>
-
+@{ 
+    Layout = "_AdminLayout";
+}
 <h3>Вы действительно хотите удалить данного поставщика?</h3>
 <div>
     <hr />
@@ -45,6 +46,6 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="SupplierId" />
         <input type="submit" value="Удалить" class="btn btn-danger" /> |
-        <a asp-action="Index">Назад</a>
+        <a class="btn btn-info" asp-action="Index">Назад</a>
     </form>
 </div>

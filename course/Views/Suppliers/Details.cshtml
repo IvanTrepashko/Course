@@ -4,8 +4,9 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Детали</h1>
-
+@{ 
+    Layout = "_AdminLayout";
+}
 <div>
     <h4>Поставщик</h4>
     <hr />
@@ -43,6 +44,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.SupplierId">Редактировать</a> |
-    <a asp-action="Index">Назад</a>
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.SupplierId">Редактировать</a>
+    <a class="btn btn-info" asp-action="Index">Назад</a>
 </div>

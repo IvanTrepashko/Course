@@ -4,11 +4,12 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Удаление</h1>
+@{ 
+    Layout = "_AdminLayout";
+}
 
 <h3>Вы действительно хотите удалить данную вещь:</h3>
 <div>
-    <h4>Clothing</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -33,7 +34,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="ClothingId" />
-        <input type="submit" value="Удалить" class="btn btn-danger" /> |
-        <a asp-action="Index">Назад</a>
+        <input type="submit" value="Удалить" class="btn btn-danger" />
+        <a asp-action="index" class="btn btn-primary">Назад</a>
     </form>
 </div>

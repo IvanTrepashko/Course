@@ -4,7 +4,9 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Редактирование</h1>
+@{ 
+    Layout = "_AdminLayout";
+}
 
 <h4>Мастер</h4>
 <hr />
@@ -30,9 +32,5 @@
 </div>
 
 <div>
-    <a asp-action="Index">Назад</a>
+    <a class="btn btn-info" asp-action="Index">Назад</a>
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

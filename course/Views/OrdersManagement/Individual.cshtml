@@ -3,9 +3,14 @@
     ViewData["Title"] = "Individual";
 }
 
-<h1>Индивидуальные заказы</h1>
+@{ 
+    Layout = "_AdminLayout";
+}
 
-<table class="table">
+<a class="btn btn-info" asp-action="index">Заказы</a>
+<h3 class="text-center">Индивидуальные заказы</h3>
+
+<table class="table table-borderless table-hover">
     <thead>
         <tr>
             <th>
@@ -86,10 +91,9 @@
                 }
             </td>
             <td>
-                <a asp-action="deleteind" asp-route-id="@item.OrderId">Удалить</a>
+                <a class="btn btn-danger" asp-action="deleteind" asp-route-id="@item.OrderId">Удалить</a>
             </td>
         </tr>
         }
     </tbody>
 </table>
-<a asp-action="index">Назад</a>

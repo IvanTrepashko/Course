@@ -4,7 +4,10 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Добавление мастера</h1>
+@{ 
+    Layout = "_AdminLayout";
+}
+
 
 <h4>Новый мастер</h4>
 <hr />
@@ -38,6 +41,7 @@
                 <span asp-validation-for="PasswordConfirm" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <br/>
                 <input type="submit" value="Добавить" class="btn btn-primary" />
             </div>
         </form>
@@ -45,9 +49,5 @@
 </div>
 
 <div>
-    <a asp-action="Index">Назад</a>
+    <a class="btn btn-info" asp-action="Index">Назад</a>
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

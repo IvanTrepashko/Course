@@ -3,8 +3,10 @@
     ViewData["Title"] = "AddIndividual";
 }
 
-
-<table class="table">
+@{ 
+    Layout = "_MastersLayout";
+}
+<table class="table table-hover table-borderless" style="border-right:none;border-radius:3px 4px;border-bottom:none">
     <thead>
         <tr>
             <th>
@@ -68,14 +70,13 @@
                     <span>Выполнен</span>
                 }
             </td>
-            <td>
+            <td style="border:none;">
                 @if (item.isCompleted == 0)
                 {
-                <a asp-action="markcompletedind" asp-route-id="@item.OrderId">Отметить как выполненный</a>
+                <a class="btn btn-primary" asp-action="markcompletedind" asp-route-id="@item.OrderId">Отметить как выполненный</a>
                 }
             </td>
         </tr>
         }
     </tbody>
 </table>
-<a asp-action="menu">Назад</a>

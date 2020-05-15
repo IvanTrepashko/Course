@@ -1,17 +1,24 @@
 ﻿@model course.Models.Commentary
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Ателье \"Ножницы\"";
+}
+
+@{
+    Layout = "_MainLayout";
 }
 
 
-<h2 style="text-align:center;">Добро пожаловать</h2>
-    @if(Model.Comment!=null)
+
+<h2 style="text-align:center;">Ателье "Ножницы"</h2>
+<div class="container">
+    @if (Model.Comment != null)
     {
         <p>
             Случайный отзыв о нашей компании:
-            <br/>
-            <p>
-                @Html.DisplayFor(itemView=>Model.Comment)
-            </p>
+            <br />
+        <p>
+            @Html.DisplayFor(itemView => Model.Comment)
         </p>
-    }
+        </p>
+    }   
+</div>

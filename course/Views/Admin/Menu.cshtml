@@ -3,17 +3,8 @@
     ViewData["Title"] = "Для администратора";
 }
 @{
-    Layout = "_Layout";
+    Layout = "_AdminLayout";
 }
-<p>
-    <ul style="display:flex;list-style:none;">
-        <li><a asp-controller="clientsmanagement" asp-action="index" style="margin-right:30px;">Управление клиентами</a></li>
-        <li><a asp-controller="mastersmanagement" asp-action="index" style="margin-right:30px;">Управление мастерами</a></li>
-        <li><a asp-controller="clothings" asp-action="index" style="margin-right:30px;">Управление одеждой</a></li>
-        <li><a asp-controller="ordersmanagement" asp-action="index" style="margin-right:30px;">Управление заказами</a></li>
-        <li><a asp-controller="suppliers" asp-action="index" style="margin-right:30px;">Управление поставщиками</a></li>
-    </ul>
-</p>
-<p>
-    <a asp-controller="home" asp-action="index">Вернуться назад</a>
-</p>
+<h3 class="text-center">
+    Добро пожаловать в панель администратора
+</h3>

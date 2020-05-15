@@ -4,7 +4,9 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Удаление мастера</h1>
+@{ 
+    Layout = "_AdminLayout";
+}
 
 <h3>Вы действительно хотите удалить данного мастера?</h3>
 <div>
@@ -38,7 +40,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="UserGuid" />
-        <input type="submit" value="Удалить" class="btn btn-danger" /> |
-        <a asp-action="Index">Назад</a>
+        <input type="submit" value="Удалить" class="btn btn-danger" />
+        <a class="btn btn-info" asp-action="Index">Назад</a>
     </form>
 </div>

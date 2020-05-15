@@ -3,8 +3,11 @@
     ViewData["Title"] = "AddIndividual";
 }
 
+@{ 
+    Layout = "_MastersLayout";
+}
 
-<table class="table">
+<table class="table table-hover table-borderless" style="border-bottom:none;border-right:none;">
     <thead>
         <tr>
             <th>
@@ -40,11 +43,10 @@
                     @Html.DisplayFor(modelItem => localtime);
                 }
             </td>
-            <td>
-                <a asp-action="AddInd" asp-route-id="@item.OrderId">Добавить</a>
+            <td style="border:none;">
+                <a class="btn btn-primary" asp-action="AddInd" asp-route-id="@item.OrderId">Взять</a>
             </td>
         </tr>
         }
     </tbody>
 </table>
-<a asp-action="menu">Назад</a>

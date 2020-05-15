@@ -4,9 +4,13 @@
     ViewData["Title"] = "Управление заказами";
 }
 
-<h1>Все заказы</h1>
-<a asp-action="individual">Индивидуальные заказы</a>
-<table class="table">
+@{ 
+    Layout = "_AdminLayout";
+}
+
+<a class="btn btn-info" asp-action="individual">Индивидуальные заказы</a>
+<h3 class="text-center">Все заказы</h3>
+<table class="table table-borderless table-hover">
     <thead>
         <tr>
             <th>
@@ -36,62 +40,62 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClientName)
-            </td>
-            <td>
-                @if (item.MasterName == null)
-                {
-                    <span>Заказ не был обработан</span>
-                }
-                else
-                    @Html.DisplayFor(modelItem => item.MasterName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Material)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cost)
-            </td>
-            <td>
-                @{
-                    var order = item.OrderingTime.ToLocalTime().DateTime;
-                }
-                @Html.DisplayFor(modelItem => order)
-            </td>
-            <td>
-                @{
-                    var sewing = item.SewingTime.ToLocalTime().DateTime;
-                }
-                @{
-                    if (sewing == DateTimeOffset.MinValue.ToLocalTime())
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClientName)
+                </td>
+                <td>
+                    @if (item.MasterName == null)
                     {
-                        <span>Заказ не был выполнен</span>
+                        <span>Заказ не был обработан</span>
                     }
                     else
-                        @Html.DisplayFor(modelItem => sewing)
-                }
-            </td>
-            <td>
-                @if (item.isCompleted == 0)
-                {
-                    <span>Не выполнен</span>
-                }
-                else
-                {
-                    <span>Выполнен</span>
-                }
-            </td>
-            <td>
-                <a asp-action="Delete" asp-route-id="@item.OrderId">Удалить</a>
-            </td>
-        </tr>
-}
+                        @Html.DisplayFor(modelItem => item.MasterName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Material)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cost)
+                </td>
+                <td>
+                    @{
+                        var order = item.OrderingTime.ToLocalTime().DateTime;
+                    }
+                    @Html.DisplayFor(modelItem => order)
+                </td>
+                <td>
+                    @{
+                        var sewing = item.SewingTime.ToLocalTime().DateTime;
+                    }
+                    @{
+                        if (sewing == DateTimeOffset.MinValue.ToLocalTime())
+                        {
+                            <span>Заказ не был выполнен</span>
+                        }
+                        else
+                            @Html.DisplayFor(modelItem => sewing)
+                    }
+                </td>
+                <td>
+                    @if (item.isCompleted == 0)
+                    {
+                        <span>Не выполнен</span>
+                    }
+                    else
+                    {
+                        <span>Выполнен</span>
+                    }
+                </td>
+                <td>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.OrderId">Удалить</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
-<a asp-controller="admin" asp-action="menu">Назад</a>

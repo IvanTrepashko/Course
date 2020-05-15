@@ -2,28 +2,46 @@
 @{
     ViewData["Title"] = "Login";
 }
+@{ 
+    Layout = "_MainLayout";
+}
+
+<link rel="stylesheet" href="~/css/RegisterForm.css" />
 
 @model course.ViewModels.LoginViewModel
 
-<h2>Вход в приложение</h2>
-<form method="post" asp-controller="Clients" asp-action="Login"
-      asp-route-returnUrl="@Model.ReturnUrl">
-    <div asp-validation-summary="ModelOnly"></div>
-    <div>
-        <label asp-for="Email"></label><br />
-        <input asp-for="Email" />
-        <span asp-validation-for="Email"></span>
+<body>
+    <div class="container">
+        <div class="col-md-6 mx-auto text-center">
+            <div class="header-title">
+                <h1 class="wv-heading--title">
+                    Вход
+                </h1>
+                <h2 class="wv-heading--subtitle">
+                    Войдите в свой аккаунт для дополнительных возможностей
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mx-auto text-center">
+                <br/>
+                <br/>
+                <div class="myform form ">
+                    <form asp-controller="clients" asp-action="login" method="post">
+                        <div asp-validation-summary="ModelOnly" />
+                        <div class="form-group">
+                            <input asp-for="Email" type="email" class="form-control my-input" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input asp-for="Password" class="form-control my-input" placeholder="Пароль">
+                        </div>
+                        <div class="text-center ">
+                            <input type="submit" class=" btn btn-block send-button tx-tfm" value="Войти" />
+                        </div>
+                    </form>
+                    <a asp-action="register" class="btn btn-primary">Регистрация</a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <label asp-for="Password"></label><br />
-        <input asp-for="Password" />
-        <span asp-validation-for="Password"></span>
-    </div>
-    <br/>
-    <div>
-        <input type="submit" value="Войти" />
-    </div>
-</form>
-<p>
-    <a asp-action="index">Назад</a>
-</p>
+</body>

@@ -3,7 +3,11 @@
     ViewData["Title"] = "Information";
 }
 
-<table class="table">
+@{ 
+    Layout = "_MastersLayout";
+}
+
+<table class="table table-borderless table-hover" style="border-bottom:none; border-right:none;">
     <thead>
         <tr>
             <th>
@@ -64,14 +68,13 @@
                     <span>Выполнен</span>
                 }
             </td>
-            <td>
+            <td style="border:none;">
                 @if (item.isCompleted == 0)
                 {
-                    <a asp-action="markcompleted" asp-route-id="@item.OrderId">Отметить как выполненный</a>
+                    <a class="btn btn-primary" asp-action="markcompleted" asp-route-id="@item.OrderId">Отметить как выполненный</a>
                 }
             </td>
         </tr>
         }
     </tbody>
 </table>
-<a asp-action="menu">Назад</a>

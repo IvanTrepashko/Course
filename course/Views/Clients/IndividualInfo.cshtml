@@ -2,14 +2,14 @@
 @{
     ViewData["Title"] = "IndividualInfo";
 }
-<h1>Ваши индивидуальные заказы </h1>
+@{ 
+    Layout = "_ClientsLayout";
+}
+
+<h3 style="text-align:center;">Ваши индивидуальные заказы </h3>
 <br />
-<p>
-    <a asp-action="menu">Назад</a>
-</p>
 
-
-<table class="table">
+<table class="table table-borderless thead-dark table-hover" >
     <thead>
         <tr>
             <th>

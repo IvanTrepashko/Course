@@ -3,10 +3,12 @@
 @{
     ViewData["Title"] = "Управление клиентами";
 }
+@{ 
+    Layout = "_AdminLayout";
+}
+<h3 style="text-align:center">Все клиенты</h3>
 
-<h1>Все клиенты</h1>
-
-<table class="table">
+<table class="table table-borderless table-hover" style="border-bottom:none;border-right:none;">
     <thead>
         <tr>
             <th>
@@ -32,11 +34,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.PhoneNumber)
             </td>
-            <td>
-                <a asp-action="Delete" asp-route-id="@item.UserGuid">Удалить</a>
+            <td style="border:none;">
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.UserGuid">Удалить</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
-<a asp-controller="admin" asp-action="menu">Назад</a>

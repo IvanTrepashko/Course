@@ -1,0 +1,50 @@
+﻿<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="~/css/Sidebar.css" />
+    <script src="~/js/Sidebar.js"></script>
+    <link rel="stylesheet" href="~/css/Client.css" />
+</head>
+<body>
+<div id="throbber" style="display:none; min-height:120px;"></div>
+<div id="noty-holder"></div>
+<div id="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <!-- Top Menu Items -->
+        <ul class="nav navbar-right top-nav">
+            <li>
+                <a asp-controller="home" asp-action="index">Домой</a>
+            </li>
+            <li>
+                <a asp-controller="clients" asp-action="login">Для клиента</a>
+            </li>
+            <li>
+                <a asp-controller="master" asp-action="login">Для мастера</a>
+            </li>
+            <li>
+                <a asp-controller="admin" asp-action="index">Для администратора</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="row" id="main">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</div>
+</body>

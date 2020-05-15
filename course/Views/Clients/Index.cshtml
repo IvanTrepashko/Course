@@ -1,16 +1,22 @@
-﻿
+﻿@{
+    ViewData["Title"] = "Клиент";
+}
+@{ 
+    Layout = "_MainLayout";
+}
+
 <style>
-    ul{
-        list-style:none;
+    ul {
+        list-style: none;
     }
-    .log-reg
-    {
-        text-align:center;
-        font-size:40px;
+
+    .log-reg {
+        text-align: center;
+        font-size: 40px;
     }
 </style>
 
-<ul>    
+<ul>
     <li class="log-reg"><a asp-controller="Clients" asp-action="Login">Вход</a></li>
-   <li class="log-reg"><a asp-controller="Clients" asp-action="Register">Регистрация</a></li>
+    <li class="log-reg"><a asp-controller="Clients" asp-action="Register">Регистрация</a></li>
 </ul>
