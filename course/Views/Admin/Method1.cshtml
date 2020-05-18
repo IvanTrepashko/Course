@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Method1";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model Method
+<h3>Введите себестоимость и прибыль от каждой вещи за месяц</h3>
+
+<form asp-controller="admin" asp-action="method1" method="post">
+    <div asp-validation-summary="ModelOnly" />
+    @for (int i = 0; i < Model.OptionsCount; i++)
+    {
+        <span>Вещь №@(i+1)</span>
+        @for (int j = 0; j < Model.MonthCount; j++)
+        {
+
+            <div class="form-group">
+                <input asp-for="Data[i][j]" class="form-control my-input" placeholder="Себестоимость за месяц">
+            </div>
+            <div class="form-group">
+                <input asp-for="Data[i][j+Model.MonthCount]" class="form-control my-input" placeholder="Прибыль за месяц">
+            </div>
+        }
+    }
+    <div class="text-center ">
+        <input type="submit" class=" btn btn-block send-button tx-tfm" value="Ввести данные" />
+    </div>
+</form>

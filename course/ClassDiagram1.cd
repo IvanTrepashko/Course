@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="course.Controllers.AdminController">
+    <Position X="4.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\AdminController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="course.Controllers.ClientsController">
+    <Position X="7.75" Y="0.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="course.Controllers.ClientsController.SortState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Controllers\ClientsController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAIAFAAEIAAABCAAAABAAAIAAAAJgEAAAAAQAAAAAAA=</HashCode>
+      <FileName>Controllers\ClientsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="course.Controllers.ClientsManagementController">
+    <Position X="11.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAQAAAABACAAAAAAAAAAAEAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ClientsManagementController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="course.Controllers.ClothingsController">
+    <Position X="6" Y="0.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="course.Controllers.ClothingsController.SortState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Controllers\ClothingsController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABBACAAAAAAAAAABEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ClothingsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="course.Controllers.HomeController">
+    <Position X="6" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAABAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="course.Controllers.MasterController">
+    <Position X="9.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAFAAgACAABAAAAABAAAAAAAEIgAAAAAAQAQQAAAA=</HashCode>
+      <FileName>Controllers\MasterController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="course.Controllers.MastersManagementController">
+    <Position X="4.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAABBACAAAAAAAAAAAEAAEACAAkAAAAAAAA=</HashCode>
+      <FileName>Controllers\MastersManagementController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="course.Controllers.OrdersManagementController">
+    <Position X="11.25" Y="3.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="course.Controllers.OrdersManagementController.SortState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Controllers\OrdersManagementController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAASAIAAABACAAAAAAAAAAAEAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\OrdersManagementController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="course.Controllers.SuppliersController">
+    <Position X="13" Y="0.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="course.Controllers.SuppliersController.SortState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Controllers\SuppliersController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABBACAAAAAAAAgAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\SuppliersController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
