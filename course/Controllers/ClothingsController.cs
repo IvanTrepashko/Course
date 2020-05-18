@@ -31,7 +31,6 @@ namespace course.Controllers
             _context = context;
         }
 
-        // GET: Clothings
         public async Task<IActionResult> Index(SortState sortState=SortState.CategoryAsc)
         {
             IQueryable<Clothing> clothings = _context.Clothes;
@@ -53,7 +52,6 @@ namespace course.Controllers
             return View(await clothings.AsNoTracking().ToListAsync());
         }
 
-        // GET: Clothings/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -76,7 +74,6 @@ namespace course.Controllers
             return View(clothing);
         }
 
-        // GET: Clothings/Create
         public IActionResult Create()
         {
             return View();
@@ -106,7 +103,6 @@ namespace course.Controllers
             return View(clothing);
         }
 
-        // GET: Clothings/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -168,7 +164,6 @@ namespace course.Controllers
             return View(clothing);
         }
 
-        // GET: Clothings/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -186,7 +181,6 @@ namespace course.Controllers
             return View(clothing);
         }
 
-        // POST: Clothings/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

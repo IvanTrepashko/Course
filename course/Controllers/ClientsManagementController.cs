@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using course.Models;
 using Microsoft.AspNetCore.Identity;
@@ -21,13 +18,11 @@ namespace course.Controllers
             _context = context;
         }
 
-        // GET: ClientsManagement
         public async Task<IActionResult> Index()
         {
             return View(await _context.Clients.ToListAsync());
         }
 
-        // GET: ClientsManagement/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -45,7 +40,6 @@ namespace course.Controllers
             return View(client);
         }
 
-        // POST: ClientsManagement/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
